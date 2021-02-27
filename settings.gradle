@@ -1,2 +1,3 @@
 rootProject.name = 'write-better-tests'
 include 'dry-and-damp'
+include 'test-data-builder'
