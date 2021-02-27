@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'com.arhohuttunen'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.7.0'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.19.0'
+}
