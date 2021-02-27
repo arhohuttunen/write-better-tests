@@ -6,8 +6,23 @@ public class AddressBuilder {
     private String postalCode;
     private String country;
 
+    private AddressBuilder() {
+
+    }
+
+    private AddressBuilder(AddressBuilder copy) {
+        this.street = copy.street;
+        this.city = copy.city;
+        this.postalCode = copy.postalCode;
+        this.country = copy.country;
+    }
+
     public static AddressBuilder anAddress() {
         return new AddressBuilder();
+    }
+
+    public AddressBuilder but() {
+        return new AddressBuilder(this);
     }
 
     public AddressBuilder withStreet(String street) {

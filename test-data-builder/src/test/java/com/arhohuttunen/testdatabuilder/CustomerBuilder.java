@@ -1,9 +1,21 @@
 package com.arhohuttunen.testdatabuilder;
 
+import static com.arhohuttunen.testdatabuilder.AddressBuilder.anAddress;
+
 public class CustomerBuilder {
     private Long customerId = 1L;
     private String name = "Unimportant";
-    private Address address = new AddressBuilder().build();
+    private Address address = anAddress().build();
+
+    private CustomerBuilder() {
+
+    }
+
+    private CustomerBuilder(CustomerBuilder copy) {
+        this.customerId = copy.customerId;
+        this.name = copy.name;
+        this.address = copy.address;
+    }
 
     public static CustomerBuilder aCustomer() {
         return new CustomerBuilder();
@@ -12,6 +24,10 @@ public class CustomerBuilder {
     public CustomerBuilder withCustomerId(Long customerId) {
         this.customerId = customerId;
         return this;
+    }
+
+    public CustomerBuilder but() {
+        return new CustomerBuilder(this);
     }
 
     public CustomerBuilder withName(String name) {

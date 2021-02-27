@@ -12,18 +12,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class BuilderTest {
     @Test
-    void handBuiltOrder() {
+    void constructOrder() {
         Address address = new Address("1216  Clinton Street", "Philadelphia", "19108", null);
         Customer customer = new Customer(1L, "Terry Tew", address);
-        OrderItem coffeeMug = new OrderItem("Coffee mug", 1);
-        OrderItem teaCup = new OrderItem("Tea cup", 1);
-        Order order = new Order(1L, customer, Arrays.asList(coffeeMug, teaCup), 0.0, null);
+        Order order = new Order(1L, customer, 0.0, null);
+        order.addOrderItem(new OrderItem("Coffee mug", 1));
+        order.addOrderItem(new OrderItem("Tea cup", 1));
 
         assertThat(order.getCustomer().getName()).isEqualTo("Terry Tew");
     }
 
     @Test
-    void createOrder() {
+    void buildOrder() {
         Order order = anOrder()
                 .with(aCustomer()
                         .withName("Terry Tew")
@@ -41,13 +41,13 @@ class BuilderTest {
     }
 
     @Test
-    void createSimilarOrders() {
+    void buildSimilarOrders() {
         OrderBuilder coffeeMugAndTeaCup = anOrder()
                 .with(anOrderItem().withName("Coffee mug").withQuantity(1))
                 .with(anOrderItem().withName("Tea cup").withQuantity(1));
 
-        Order orderWithDiscount = coffeeMugAndTeaCup.withDiscountRate(0.1).build();
-        Order orderWithCouponCode = coffeeMugAndTeaCup.withCouponCode("HALFOFF").build();
+        Order orderWithDiscount = coffeeMugAndTeaCup.but().withDiscountRate(0.1).build();
+        Order orderWithCouponCode = coffeeMugAndTeaCup.but().withCouponCode("HALFOFF").build();
 
         assertThat(orderWithDiscount.getDiscountRate()).isEqualTo(0.1);
         assertThat(orderWithCouponCode.getDiscountRate()).isEqualTo(0.0);

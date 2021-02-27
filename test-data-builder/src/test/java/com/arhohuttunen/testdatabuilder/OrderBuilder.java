@@ -3,9 +3,11 @@ package com.arhohuttunen.testdatabuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.arhohuttunen.testdatabuilder.CustomerBuilder.aCustomer;
+
 public class OrderBuilder {
     private Long orderId = 1L;
-    private Customer customer = new CustomerBuilder().build();
+    private Customer customer = aCustomer().build();
     private List<OrderItem> orderItems = new ArrayList<>();
     private Double discountRate = 0.0;
     private String couponCode;
@@ -32,31 +34,33 @@ public class OrderBuilder {
         return builder;
     }
 
+    public OrderBuilder but() {
+        return new OrderBuilder(this);
+    }
+
     public OrderBuilder with(CustomerBuilder customerBuilder) {
-        OrderBuilder builder = new OrderBuilder(this);
-        builder.customer = customerBuilder.build();
-        return builder;
+        this.customer = customerBuilder.build();
+        return this;
     }
 
     public OrderBuilder with(OrderItemBuilder orderItemBuilder) {
-        OrderBuilder builder = new OrderBuilder(this);
-        builder.orderItems.add(orderItemBuilder.build());
-        return builder;
+        this.orderItems.add(orderItemBuilder.build());
+        return this;
     }
 
     public OrderBuilder withDiscountRate(Double discountRate) {
-        OrderBuilder builder = new OrderBuilder(this);
-        builder.discountRate = discountRate;
-        return builder;
+        this.discountRate = discountRate;
+        return this;
     }
 
     public OrderBuilder withCouponCode(String couponCode) {
-        OrderBuilder builder = new OrderBuilder(this);
-        builder.couponCode = couponCode;
-        return builder;
+        this.couponCode = couponCode;
+        return this;
     }
 
     public Order build() {
-        return new Order(orderId, customer, orderItems, discountRate, couponCode);
+        Order order = new Order(orderId, customer, discountRate, couponCode);
+        orderItems.forEach(order::addOrderItem);
+        return order;
     }
 }
