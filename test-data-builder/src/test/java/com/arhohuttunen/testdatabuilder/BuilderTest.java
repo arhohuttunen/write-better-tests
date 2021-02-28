@@ -2,8 +2,6 @@ package com.arhohuttunen.testdatabuilder;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static com.arhohuttunen.testdatabuilder.AddressBuilder.anAddress;
 import static com.arhohuttunen.testdatabuilder.CustomerBuilder.aCustomer;
 import static com.arhohuttunen.testdatabuilder.OrderBuilder.anOrder;
