@@ -1,6 +1,5 @@
 package com.arhohuttunen.testdatabuilder.builder;
 
-import com.arhohuttunen.testdatabuilder.model.Customer;
 import com.arhohuttunen.testdatabuilder.model.Order;
 import com.arhohuttunen.testdatabuilder.model.OrderItem;
 
@@ -11,7 +10,7 @@ import static com.arhohuttunen.testdatabuilder.builder.CustomerBuilder.aCustomer
 
 public class OrderBuilder {
     private Long orderId = 1L;
-    private Customer customer = aCustomer().build();
+    private CustomerBuilder customerBuilder = aCustomer();
     private List<OrderItem> orderItems = new ArrayList<>();
     private Double discountRate = 0.0;
     private String couponCode;
@@ -22,7 +21,7 @@ public class OrderBuilder {
 
     private OrderBuilder(OrderBuilder copy) {
         this.orderId = copy.orderId;
-        this.customer = copy.customer;
+        this.customerBuilder = copy.customerBuilder;
         this.orderItems = copy.orderItems;
         this.discountRate = copy.discountRate;
         this.couponCode = copy.couponCode;
@@ -43,7 +42,7 @@ public class OrderBuilder {
     }
 
     public OrderBuilder with(CustomerBuilder customerBuilder) {
-        this.customer = customerBuilder.build();
+        this.customerBuilder = customerBuilder;
         return this;
     }
 
@@ -63,7 +62,7 @@ public class OrderBuilder {
     }
 
     public Order build() {
-        Order order = new Order(orderId, customer, discountRate, couponCode);
+        Order order = new Order(orderId, customerBuilder.build(), discountRate, couponCode);
         orderItems.forEach(order::addOrderItem);
         return order;
     }

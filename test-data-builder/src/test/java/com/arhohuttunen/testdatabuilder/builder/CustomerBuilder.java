@@ -1,6 +1,5 @@
 package com.arhohuttunen.testdatabuilder.builder;
 
-import com.arhohuttunen.testdatabuilder.model.Address;
 import com.arhohuttunen.testdatabuilder.model.Customer;
 
 import static com.arhohuttunen.testdatabuilder.builder.AddressBuilder.anAddress;
@@ -8,7 +7,7 @@ import static com.arhohuttunen.testdatabuilder.builder.AddressBuilder.anAddress;
 public class CustomerBuilder {
     private Long customerId = 1L;
     private String name = "Unimportant";
-    private Address address = anAddress().build();
+    private AddressBuilder addressBuilder = anAddress();
 
     private CustomerBuilder() {
 
@@ -17,7 +16,7 @@ public class CustomerBuilder {
     private CustomerBuilder(CustomerBuilder copy) {
         this.customerId = copy.customerId;
         this.name = copy.name;
-        this.address = copy.address;
+        this.addressBuilder = copy.addressBuilder;
     }
 
     public static CustomerBuilder aCustomer() {
@@ -39,11 +38,11 @@ public class CustomerBuilder {
     }
 
     public CustomerBuilder with(AddressBuilder addressBuilder) {
-        this.address = addressBuilder.build();
+        this.addressBuilder = addressBuilder;
         return this;
     }
 
     public Customer build() {
-        return new Customer(customerId, name, address);
+        return new Customer(customerId, name, addressBuilder.build());
     }
 }
