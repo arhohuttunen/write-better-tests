@@ -1,10 +1,12 @@
-package com.arhohuttunen.testdatabuilder;
+package com.arhohuttunen.testdatabuilder.builder;
+
+import com.arhohuttunen.testdatabuilder.model.Address;
 
 public class AddressBuilder {
-    private String street;
-    private String city;
-    private String postalCode;
-    private String country;
+    private String street = "Some street";
+    private String city = "Some city";
+    private String postalCode = "Some postal code";
+    private String country = "Some country";
 
     private AddressBuilder() {
 

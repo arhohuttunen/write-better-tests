@@ -1,6 +1,9 @@
-package com.arhohuttunen.testdatabuilder;
+package com.arhohuttunen.testdatabuilder.builder;
 
-import static com.arhohuttunen.testdatabuilder.AddressBuilder.anAddress;
+import com.arhohuttunen.testdatabuilder.model.Address;
+import com.arhohuttunen.testdatabuilder.model.Customer;
+
+import static com.arhohuttunen.testdatabuilder.builder.AddressBuilder.anAddress;
 
 public class CustomerBuilder {
     private Long customerId = 1L;

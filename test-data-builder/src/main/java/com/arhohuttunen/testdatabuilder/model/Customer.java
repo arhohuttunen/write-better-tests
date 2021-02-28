@@ -1,4 +1,4 @@
-package com.arhohuttunen.testdatabuilder;
+package com.arhohuttunen.testdatabuilder.model;
 
 public class Customer {
     private final Long customerId;

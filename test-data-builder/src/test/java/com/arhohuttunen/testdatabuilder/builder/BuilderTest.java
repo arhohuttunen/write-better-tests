@@ -1,25 +1,15 @@
-package com.arhohuttunen.testdatabuilder;
+package com.arhohuttunen.testdatabuilder.builder;
 
+import com.arhohuttunen.testdatabuilder.model.Order;
 import org.junit.jupiter.api.Test;
 
-import static com.arhohuttunen.testdatabuilder.AddressBuilder.anAddress;
-import static com.arhohuttunen.testdatabuilder.CustomerBuilder.aCustomer;
-import static com.arhohuttunen.testdatabuilder.OrderBuilder.anOrder;
-import static com.arhohuttunen.testdatabuilder.OrderItemBuilder.anOrderItem;
+import static com.arhohuttunen.testdatabuilder.builder.AddressBuilder.anAddress;
+import static com.arhohuttunen.testdatabuilder.builder.CustomerBuilder.aCustomer;
+import static com.arhohuttunen.testdatabuilder.builder.OrderBuilder.anOrder;
+import static com.arhohuttunen.testdatabuilder.builder.OrderItemBuilder.anOrderItem;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class BuilderTest {
-    @Test
-    void constructOrder() {
-        Address address = new Address("1216  Clinton Street", "Philadelphia", "19108", null);
-        Customer customer = new Customer(1L, "Terry Tew", address);
-        Order order = new Order(1L, customer, 0.0, null);
-        order.addOrderItem(new OrderItem("Coffee mug", 1));
-        order.addOrderItem(new OrderItem("Tea cup", 1));
-
-        assertThat(order.getCustomer().getName()).isEqualTo("Terry Tew");
-    }
-
     @Test
     void buildOrder() {
         Order order = anOrder()
@@ -48,6 +38,10 @@ class BuilderTest {
         Order orderWithCouponCode = coffeeMugAndTeaCup.but().withCouponCode("HALFOFF").build();
 
         assertThat(orderWithDiscount.getDiscountRate()).isEqualTo(0.1);
+
+        // We have safe default values:
+        assertThat(orderWithCouponCode.getCustomer().getAddress().getCountry()).isEqualTo("Some country");
+        assertThat(orderWithCouponCode.getCustomer().getName()).isEqualTo("Unimportant");
         assertThat(orderWithCouponCode.getDiscountRate()).isEqualTo(0.0);
     }
 }

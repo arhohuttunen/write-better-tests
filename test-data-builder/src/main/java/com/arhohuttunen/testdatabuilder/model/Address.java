@@ -1,4 +1,4 @@
-package com.arhohuttunen.testdatabuilder;
+package com.arhohuttunen.testdatabuilder.model;
 
 public class Address {
     private final String street;

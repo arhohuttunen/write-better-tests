@@ -1,4 +1,4 @@
-package com.arhohuttunen.testdatabuilder;
+package com.arhohuttunen.testdatabuilder.model;
 
 public class OrderItem {
     private final String name;

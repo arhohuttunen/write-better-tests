@@ -1,9 +1,13 @@
-package com.arhohuttunen.testdatabuilder;
+package com.arhohuttunen.testdatabuilder.builder;
+
+import com.arhohuttunen.testdatabuilder.model.Customer;
+import com.arhohuttunen.testdatabuilder.model.Order;
+import com.arhohuttunen.testdatabuilder.model.OrderItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.arhohuttunen.testdatabuilder.CustomerBuilder.aCustomer;
+import static com.arhohuttunen.testdatabuilder.builder.CustomerBuilder.aCustomer;
 
 public class OrderBuilder {
     private Long orderId = 1L;

@@ -3,12 +3,12 @@ package com.arhohuttunen.testdatabuilder.lombok;
 import org.junit.jupiter.api.Test;
 
 import static com.arhohuttunen.testdatabuilder.lombok.Address.anAddress;
-import static com.arhohuttunen.testdatabuilder.lombok.Customer.aCustomer;
-import static com.arhohuttunen.testdatabuilder.lombok.Order.anOrder;
+import static com.arhohuttunen.testdatabuilder.lombok.Customers.aCustomer;
 import static com.arhohuttunen.testdatabuilder.lombok.OrderItem.anOrderItem;
+import static com.arhohuttunen.testdatabuilder.lombok.Orders.anOrder;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class LombokBuilderTest {
+public class LombokObjectMotherTest {
     @Test
     void buildOrder() {
         Order order = anOrder()
@@ -41,8 +41,9 @@ public class LombokBuilderTest {
 
         assertThat(orderWithDiscount.getDiscountRate()).isEqualTo(0.1);
 
-        // We don't have safe default values:
-        assertThat(orderWithDiscount.getCustomer()).isNull();
-        assertThat(orderWithCouponCode.getDiscountRate()).isNull();
+        // We have safe default values:
+        assertThat(orderWithCouponCode.getCustomer().getName()).isEqualTo("Unimportant");
+        assertThat(orderWithCouponCode.getCustomer().getAddress().getCity()).isEqualTo("Some city");
+        assertThat(orderWithCouponCode.getDiscountRate()).isEqualTo(0.0);
     }
 }

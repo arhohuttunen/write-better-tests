@@ -1,4 +1,6 @@
-package com.arhohuttunen.testdatabuilder;
+package com.arhohuttunen.testdatabuilder.builder;
+
+import com.arhohuttunen.testdatabuilder.model.OrderItem;
 
 public class OrderItemBuilder {
     private String name = "Unimportant";

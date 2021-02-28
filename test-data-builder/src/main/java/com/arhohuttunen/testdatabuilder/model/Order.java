@@ -1,4 +1,4 @@
-package com.arhohuttunen.testdatabuilder;
+package com.arhohuttunen.testdatabuilder.model;
 
 import java.util.ArrayList;
 import java.util.List;
