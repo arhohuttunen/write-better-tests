@@ -1,4 +1,4 @@
-package com.arhohuttunen;
+package com.arhohuttunen.model;
 
 public class BankAccount {
     private int balance;
