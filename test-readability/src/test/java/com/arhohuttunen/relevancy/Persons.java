@@ -1,6 +1,4 @@
-package com.arhohuttunen.model;
-
-import com.arhohuttunen.model.Person;
+package com.arhohuttunen.relevancy;
 
 public class Persons {
     public static Person createPerson() {

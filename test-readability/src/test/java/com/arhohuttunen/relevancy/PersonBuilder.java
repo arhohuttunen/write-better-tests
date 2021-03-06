@@ -1,4 +1,4 @@
-package com.arhohuttunen.model;
+package com.arhohuttunen.relevancy;
 
 public class PersonBuilder {
     private String firstName;

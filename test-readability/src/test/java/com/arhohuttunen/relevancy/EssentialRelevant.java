@@ -1,9 +1,8 @@
 package com.arhohuttunen.relevancy;
 
-import com.arhohuttunen.model.Person;
 import org.junit.jupiter.api.Test;
 
-import static com.arhohuttunen.model.PersonBuilder.aPerson;
+import static com.arhohuttunen.relevancy.PersonBuilder.aPerson;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

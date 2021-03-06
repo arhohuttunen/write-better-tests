@@ -1,7 +1,5 @@
 package com.arhohuttunen.naming;
 
-import com.arhohuttunen.model.BankAccount;
-import com.arhohuttunen.model.InsufficientFundsException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
