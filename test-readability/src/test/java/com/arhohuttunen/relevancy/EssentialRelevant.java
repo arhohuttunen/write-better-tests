@@ -6,7 +6,7 @@ import com.arhohuttunen.Product;
 import com.arhohuttunen.Store;
 import org.junit.jupiter.api.Test;
 
-import static com.arhohuttunen.relevancy.PersonBuilder.aPerson;
+import static com.arhohuttunen.PersonBuilder.aPerson;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
