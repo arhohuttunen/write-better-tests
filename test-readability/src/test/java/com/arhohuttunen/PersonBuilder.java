@@ -4,6 +4,7 @@ public class PersonBuilder {
     private String firstName;
     private String lastName;
     private int age;
+    private Person.Status status = Person.Status.UNVERIFIED;
 
     public static PersonBuilder aPerson() {
         return new PersonBuilder();
@@ -24,7 +25,19 @@ public class PersonBuilder {
         return this;
     }
 
+    public PersonBuilder whoIsVerified() {
+        this.status = Person.Status.VERIFIED;
+        return this;
+    }
+
+    public PersonBuilder withStatus(Person.Status status) {
+        this.status = status;
+        return this;
+    }
+
     public Person build() {
-        return new Person(firstName, lastName, age);
+        Person person = new Person(firstName, lastName, age);
+        person.setStatus(status);
+        return person;
     }
 }

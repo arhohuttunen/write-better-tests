@@ -16,6 +16,14 @@ public class Person {
         this.age = age;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
     public String getFullName() {
         return firstName + " " + lastName;
     }
@@ -26,5 +34,9 @@ public class Person {
 
     public Status getStatus() {
         return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
