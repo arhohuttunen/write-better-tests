@@ -3,6 +3,7 @@ package com.arhohuttunen.intent;
 import com.arhohuttunen.Person;
 import com.arhohuttunen.PersonBuilder;
 import com.arhohuttunen.PersonRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,6 +49,10 @@ class HelperMethods {
     private List<Person> requestVerifiedPeople() throws Exception {
         String json = client.perform(get("/person?status=VERIFIED"))
                 .andReturn().getResponse().getContentAsString();
+        return toDto(json);
+    }
+
+    private List<Person> toDto(String json) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(json, List.class);
     }
