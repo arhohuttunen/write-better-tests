@@ -10,6 +10,6 @@ class AssertionMessages {
     void increasesBalanceWhenDepositIsMade() {
         BankAccount account = new BankAccount(100);
         account.deposit(100);
-        assertEquals(200, account.getBalance(), "Account balance");
+        assertEquals(200, account.getBalance(), "Account balance after deposit");
     }
 }
