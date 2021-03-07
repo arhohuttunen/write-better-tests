@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ArrangeActAssert {
     @Test
     void purchaseSucceedsWhenEnoughInventory() {
-        Product paperclip = new Product(1L, "Paperclip");
+        Product paperclip = new Product("Paperclip");
         Store store = new Store();
         store.addInventory(paperclip, 100);
         Customer customer = new Customer();

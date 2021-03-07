@@ -1,16 +1,10 @@
 package com.arhohuttunen.structure;
 
 public class Product {
-    private final Long id;
     private final String name;
 
-    public Product(Long id, String name) {
-        this.id = id;
+    public Product(String name) {
         this.name = name;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getName() {
