@@ -1,4 +1,4 @@
-package com.arhohuttunen.relevancy;
+package com.arhohuttunen;
 
 public class Person {
     private final String firstName;

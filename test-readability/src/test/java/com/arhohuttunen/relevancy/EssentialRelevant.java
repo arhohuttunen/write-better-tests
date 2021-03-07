@@ -1,5 +1,6 @@
 package com.arhohuttunen.relevancy;
 
+import com.arhohuttunen.Person;
 import org.junit.jupiter.api.Test;
 
 import static com.arhohuttunen.relevancy.PersonBuilder.aPerson;

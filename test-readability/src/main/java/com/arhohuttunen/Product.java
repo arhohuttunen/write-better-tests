@@ -1,4 +1,4 @@
-package com.arhohuttunen.structure;
+package com.arhohuttunen;
 
 public class Product {
     private final String name;

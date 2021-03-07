@@ -1,5 +1,7 @@
 package com.arhohuttunen.relevancy;
 
+import com.arhohuttunen.Person;
+
 public class PersonBuilder {
     private String firstName;
     private String lastName;

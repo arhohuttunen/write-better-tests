@@ -1,5 +1,6 @@
 package com.arhohuttunen.relevancy;
 
+import com.arhohuttunen.Person;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

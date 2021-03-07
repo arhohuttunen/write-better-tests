@@ -1,3 +1,3 @@
-package com.arhohuttunen.naming;
+package com.arhohuttunen;
 
 public class InsufficientFundsException extends RuntimeException {}

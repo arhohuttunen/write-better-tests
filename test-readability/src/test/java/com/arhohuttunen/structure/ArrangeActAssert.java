@@ -1,5 +1,8 @@
 package com.arhohuttunen.structure;
 
+import com.arhohuttunen.Customer;
+import com.arhohuttunen.Product;
+import com.arhohuttunen.Store;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

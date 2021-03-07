@@ -1,4 +1,4 @@
-package com.arhohuttunen.structure;
+package com.arhohuttunen;
 
 import java.util.HashMap;
 import java.util.Map;
