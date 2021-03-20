@@ -17,7 +17,9 @@ public class ObjectMotherTest {
         order.addOrderItem(OrderItems.createOrderItem("Coffee mug"));
         order.addOrderItem(OrderItems.createOrderItem("Tea cup"));
 
-        assertThat(order.getCustomer().getName()).isEqualTo("Terry Tew");
+        // Safe default values
+        assertThat(order.getOrderId()).isNotNull();
+        assertThat(order.getCustomer().getCustomerId()).isNotNull();
         assertThat(order.getCustomer().getAddress().getCountry()).isNotNull();
     }
 
@@ -34,10 +36,6 @@ public class ObjectMotherTest {
         orderWithCouponCode.addOrderItem(teaCup);
 
         assertThat(orderWithDiscount.getDiscountRate()).isEqualTo(0.1);
-
-        // We have safe default values:
-        assertThat(orderWithCouponCode.getCustomer().getAddress().getCountry()).isEqualTo("Some country");
-        assertThat(orderWithCouponCode.getCustomer().getName()).isEqualTo("Unimportant");
         assertThat(orderWithCouponCode.getDiscountRate()).isEqualTo(0.0);
     }
 }

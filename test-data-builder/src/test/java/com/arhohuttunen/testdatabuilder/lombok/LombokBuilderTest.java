@@ -12,12 +12,15 @@ public class LombokBuilderTest {
     @Test
     void buildOrder() {
         Order order = anOrder()
+                .withOrderId(1L) // No safe default value
                 .withCustomer(aCustomer()
+                        .withCustomerId(1L) // No safe default value
                         .withName("Terry Tew")
                         .withAddress(anAddress()
                                 .withStreet("1216  Clinton Street")
                                 .withCity("Philadelphia")
                                 .withPostalCode("19108")
+                                .withCountry("Some country") // No safe default value
                                 .build()
                         )
                         .build()
@@ -26,12 +29,27 @@ public class LombokBuilderTest {
                 .withOrderItem(anOrderItem().withName("Tea cup").withQuantity(1).build())
                 .build();
 
-        assertThat(order.getCustomer().getName()).isEqualTo("Terry Tew");
+        assertThat(order.getOrderId()).isNotNull();
+        assertThat(order.getCustomer().getCustomerId()).isNotNull();
+        assertThat(order.getCustomer().getAddress().getCountry()).isNotNull();
     }
 
     @Test
     void buildSimilarOrders() {
         Order coffeeMugAndTeaCup = anOrder()
+                .withOrderId(1L)
+                .withCustomer(aCustomer()
+                        .withCustomerId(1L)
+                        .withName("Terry Tew")
+                        .withAddress(anAddress()
+                                .withStreet("1216  Clinton Street")
+                                .withCity("Philadelphia")
+                                .withPostalCode("19108")
+                                .withCountry("Some country")
+                                .build()
+                        )
+                        .build()
+                )
                 .withOrderItem(anOrderItem().withName("Coffee mug").withQuantity(1).build())
                 .withOrderItem(anOrderItem().withName("Tea cup").withQuantity(1).build())
                 .build();
@@ -40,9 +58,6 @@ public class LombokBuilderTest {
         Order orderWithCouponCode = coffeeMugAndTeaCup.toBuilder().withCouponCode("HALFOFF").build();
 
         assertThat(orderWithDiscount.getDiscountRate()).isEqualTo(0.1);
-
-        // We don't have safe default values:
-        assertThat(orderWithDiscount.getCustomer()).isNull();
-        assertThat(orderWithCouponCode.getDiscountRate()).isNull();
+        assertThat(orderWithCouponCode.getDiscountRate()).isEqualTo(0.0);
     }
 }
