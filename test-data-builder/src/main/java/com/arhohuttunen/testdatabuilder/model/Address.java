@@ -1,5 +1,7 @@
 package com.arhohuttunen.testdatabuilder.model;
 
+import java.util.Objects;
+
 public class Address {
     private final String street;
     private final String city;
@@ -7,10 +9,10 @@ public class Address {
     private final String country;
 
     public Address(String street, String city, String postalCode, String country) {
-        this.street = street;
-        this.city = city;
-        this.postalCode = postalCode;
-        this.country = country;
+        this.street = Objects.requireNonNull(street);
+        this.city = Objects.requireNonNull(city);
+        this.postalCode = Objects.requireNonNull(postalCode);
+        this.country = Objects.requireNonNull(country);
     }
 
     public String getStreet() {

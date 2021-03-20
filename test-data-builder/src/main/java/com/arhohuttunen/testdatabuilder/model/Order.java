@@ -2,6 +2,7 @@ package com.arhohuttunen.testdatabuilder.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Order {
     private final Long orderId;
@@ -11,8 +12,8 @@ public class Order {
     private final String couponCode;
 
     public Order(Long orderId, Customer customer, Double discountRate, String couponCode) {
-        this.orderId = orderId;
-        this.customer = customer;
+        this.orderId = Objects.requireNonNull(orderId);
+        this.customer = Objects.requireNonNull(customer);
         this.discountRate = discountRate;
         this.couponCode = couponCode;
     }
