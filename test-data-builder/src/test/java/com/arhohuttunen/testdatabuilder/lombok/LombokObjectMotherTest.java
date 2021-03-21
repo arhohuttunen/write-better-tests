@@ -13,17 +13,10 @@ public class LombokObjectMotherTest {
     void buildOrder() {
         Order order = anOrder()
                 .withCustomer(aCustomer()
-                        .withName("Terry Tew")
-                        .withAddress(anAddress()
-                                .withStreet("1216  Clinton Street")
-                                .withCity("Philadelphia")
-                                .withPostalCode("19108")
-                                .build()
-                        )
+                        .withAddress(anAddress().withCountry("United States").build())
                         .build()
                 )
                 .withOrderItem(anOrderItem().withName("Coffee mug").withQuantity(1).build())
-                .withOrderItem(anOrderItem().withName("Tea cup").withQuantity(1).build())
                 .build();
 
         // Safe default values

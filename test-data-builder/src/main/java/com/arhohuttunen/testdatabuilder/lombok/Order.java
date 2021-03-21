@@ -16,7 +16,6 @@ public class Order {
     private final Customer customer;
     @Singular
     private final List<OrderItem> orderItems;
-    @Builder.Default
-    private final Double discountRate = 0.0;
+    private final Double discountRate;
     private final String couponCode;
 }

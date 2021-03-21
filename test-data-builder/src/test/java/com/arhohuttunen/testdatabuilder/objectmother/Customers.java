@@ -8,7 +8,7 @@ public class Customers {
         return new Customer(1L, "Unimportant", Addresses.createAddress());
     }
 
-    public static Customer createCustomerWithAddress(String name, Address address) {
-        return new Customer(1L, name, address);
+    public static Customer createCustomerWithAddress(Address address) {
+        return new Customer(1L, "Unimportant", address);
     }
 }

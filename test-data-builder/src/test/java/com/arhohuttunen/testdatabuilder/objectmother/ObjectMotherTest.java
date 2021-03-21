@@ -10,12 +10,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ObjectMotherTest {
     @Test
-    void constructOrder() {
-        Address address = Addresses.createAddress("1216  Clinton Street", "Philadelphia", "19108");
-        Customer customer = Customers.createCustomerWithAddress("Terry Tew", address);
+    void constructOrderWithForeignAddress() {
+        Address address = Addresses.createAddressWithCountry("United States");
+        Customer customer = Customers.createCustomerWithAddress(address);
         Order order = Orders.createOrderWithCustomer(customer);
         order.addOrderItem(OrderItems.createOrderItem("Coffee mug"));
-        order.addOrderItem(OrderItems.createOrderItem("Tea cup"));
 
         // Safe default values
         assertThat(order.getOrderId()).isNotNull();

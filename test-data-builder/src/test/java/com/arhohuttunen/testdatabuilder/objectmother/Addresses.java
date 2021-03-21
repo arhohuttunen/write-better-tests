@@ -7,7 +7,7 @@ public class Addresses {
         return new Address("Some street", "Some city", "Some postal code", "Some country");
     }
 
-    public static Address createAddress(String street, String city, String postalCode) {
-        return new Address(street, city, postalCode, "Some country");
+    public static Address createAddressWithCountry(String country) {
+        return new Address("Some street", "Some city", "Some postal code", country);
     }
 }

@@ -11,18 +11,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class BuilderTest {
     @Test
-    void buildOrder() {
+    void buildOrderWithForeignAddress() {
         Order order = anOrder()
-                .with(aCustomer()
-                        .withName("Terry Tew")
-                        .with(anAddress()
-                                .withStreet("1216  Clinton Street")
-                                .withCity("Philadelphia")
-                                .withPostalCode("19108")
-                        )
-                )
+                .with(aCustomer().with(anAddress().withCountry("United States")))
                 .with(anOrderItem().withName("Coffee mug").withQuantity(1))
-                .with(anOrderItem().withName("Tea cup").withQuantity(1))
                 .build();
 
         // Safe default values

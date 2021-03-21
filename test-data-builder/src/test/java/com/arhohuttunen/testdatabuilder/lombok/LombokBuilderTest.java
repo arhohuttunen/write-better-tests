@@ -10,23 +10,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class LombokBuilderTest {
     @Test
-    void buildOrder() {
+    void buildOrderWithForeignAddress() {
         Order order = anOrder()
                 .withOrderId(1L) // No safe default value
                 .withCustomer(aCustomer()
                         .withCustomerId(1L) // No safe default value
-                        .withName("Terry Tew")
+                        .withName("Terry Tew") // No safe default value
                         .withAddress(anAddress()
-                                .withStreet("1216  Clinton Street")
-                                .withCity("Philadelphia")
-                                .withPostalCode("19108")
-                                .withCountry("Some country") // No safe default value
+                                .withStreet("1216  Clinton Street") // No safe default value
+                                .withCity("Philadelphia") // No safe default value
+                                .withPostalCode("19108") // No safe default value
+                                .withCountry("United States")
                                 .build()
                         )
                         .build()
                 )
                 .withOrderItem(anOrderItem().withName("Coffee mug").withQuantity(1).build())
-                .withOrderItem(anOrderItem().withName("Tea cup").withQuantity(1).build())
                 .build();
 
         assertThat(order.getOrderId()).isNotNull();
@@ -45,7 +44,7 @@ public class LombokBuilderTest {
                                 .withStreet("1216  Clinton Street")
                                 .withCity("Philadelphia")
                                 .withPostalCode("19108")
-                                .withCountry("Some country")
+                                .withCountry("United States")
                                 .build()
                         )
                         .build()
@@ -58,6 +57,6 @@ public class LombokBuilderTest {
         Order orderWithCouponCode = coffeeMugAndTeaCup.toBuilder().withCouponCode("HALFOFF").build();
 
         assertThat(orderWithDiscount.getDiscountRate()).isEqualTo(0.1);
-        assertThat(orderWithCouponCode.getDiscountRate()).isEqualTo(0.0);
+        assertThat(orderWithCouponCode.getDiscountRate()).isNull();
     }
 }
