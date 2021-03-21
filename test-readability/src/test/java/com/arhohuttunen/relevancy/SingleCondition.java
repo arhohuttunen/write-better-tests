@@ -42,7 +42,6 @@ class SingleCondition {
         boolean purchaseSucceeded = customer.purchase(store, printerPaper, 100);
 
         assertFalse(purchaseSucceeded);
-        assertEquals(50, store.getInventory(printerPaper));
     }
 
     @Test
