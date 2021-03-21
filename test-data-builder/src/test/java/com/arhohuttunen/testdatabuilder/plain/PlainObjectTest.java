@@ -26,11 +26,12 @@ class PlainObjectTest {
         Customer customer = new Customer(1L, "Unimportant", address);
         OrderItem coffeeMug = new OrderItem("Coffee mug", 1);
         OrderItem teaCup = new OrderItem("Tea cup", 1);
+
         Order orderWithDiscount = new Order(1L, customer, 0.1, null);
         orderWithDiscount.addOrderItem(coffeeMug);
         orderWithDiscount.addOrderItem(teaCup);
 
-        Order orderWithCouponCode = new Order(1L, customer, 0.0, "HALFOFF");
+        Order orderWithCouponCode = new Order(2L, customer, 0.0, "HALFOFF");
         orderWithCouponCode.addOrderItem(coffeeMug);
         orderWithCouponCode.addOrderItem(teaCup);
 

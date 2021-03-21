@@ -27,6 +27,7 @@ public class ObjectMotherTest {
     void constructSimilarOrders() {
         OrderItem coffeeMug = OrderItems.createOrderItem("Coffee Mug");
         OrderItem teaCup = OrderItems.createOrderItem("Tea cup");
+
         Order orderWithDiscount = Orders.createOrderWithDiscount(0.1);
         orderWithDiscount.addOrderItem(coffeeMug);
         orderWithDiscount.addOrderItem(teaCup);
