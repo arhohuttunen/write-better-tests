@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jvm-test-suite'
 }
 
 group 'com.arhohuttunen'
@@ -10,8 +11,15 @@ compileJava {
     targetCompatibility = 17
 }
 
+testing {
+    suites {
+        test {
+            useJUnitJupiter()
+        }
+    }
+}
+
 test {
-    useJUnitPlatform()
     testLogging {
         events "passed", "skipped", "failed"
     }
