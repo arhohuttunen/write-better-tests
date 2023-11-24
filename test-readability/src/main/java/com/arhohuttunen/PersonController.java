@@ -15,7 +15,7 @@ public class PersonController {
     }
 
     @GetMapping("/person")
-    public List<Person> getPerson(@RequestParam(required = false) Person.Status status) {
+    public List<Person> getPerson(@RequestParam(name = "status", required = false) Person.Status status) {
         return personRepository.findByStatus(status);
     }
 }
