@@ -33,6 +33,6 @@ dependencies {
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '3.2.2'
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.10.1'
     testRuntimeOnly group: 'org.junit.platform', name: 'junit-platform-launcher'
-    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.25.1'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.25.2'
     testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '3.2.2'
 }
