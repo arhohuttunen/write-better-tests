@@ -30,5 +30,5 @@ repositories {
 
 dependencies {
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.10.3'
-    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.26.0'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.26.3'
 }
