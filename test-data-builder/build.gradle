@@ -29,8 +29,8 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.34'
-    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+    implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.36'
+    annotationProcessor 'org.projectlombok:lombok:1.18.36'
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.11.3'
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.26.3'
 }
