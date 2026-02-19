@@ -30,7 +30,7 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webmvc', version: '4.0.2'
-    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '4.0.2'
-    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-webmvc-test', version: '4.0.2'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webmvc', version: '4.0.3'
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '4.0.3'
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-webmvc-test', version: '4.0.3'
 }
